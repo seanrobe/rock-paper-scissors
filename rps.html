@@ -11,7 +11,46 @@
 
   <script>
 
+    // Computer selection
+    function computerPlay() { 
+        const outcomes = ["Rock", "Paper", "Scissors"];
+        return outcomes[Math.floor(Math.random()*outcomes.length)];
+    }
 
+    let playerScore = 0
+    let computerScore = 0
+
+    const computerSelection = computerPlay();
+    const playerSelection = prompt('Enter Rock, Paper or Scissors');
+
+    function playRound(playerSelection, computerSelection){
+        if (playerSelection === 'rock' && computerSelection === 'scissors') {
+            playerScore++;
+            return `You Win! ${playerSelection} beats ${computerSelection}`;
+        } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+            computerScore++;
+            return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+            computerScore++;
+            return `You Lose! ${computerSelection} beats ${playerSelection}`
+        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            playerScore++;
+            return `You Win! ${playerSelection} beats ${computerSelection}`
+        } else if (playerSelection === 'scissors' && computerSelection === "rock") {
+            computerScore++;
+            return `You Lose! ${computerSelection} beats ${playerSelection}`
+        } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+            playerScore++;
+            return `You Win! ${playerSelection} beats ${computerSelection}`
+        }
+        else return `That was a draw. Try Again!`;
+    }
+
+
+
+    console.log(playRound);
+
+    
 
 
   </script>
